@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include ptdc_av *.css
+recursive-include ptdc_av *.csv
+recursive-include ptdc_av *.html
+recursive-include ptdc_av *.ico
+recursive-include ptdc_av *.js
+recursive-include ptdc_av *.json
+recursive-include ptdc_av *.md
+recursive-include ptdc_av *.png
+recursive-include ptdc_av *.py
+recursive-include ptdc_av *.svg
+recursive-include ptdc_av *.txt
+recursive-exclude ptdc_av *.pyc
