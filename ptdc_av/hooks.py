@@ -103,6 +103,12 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+	"Individual": {
+		"after_insert": "ptdc_av.api.add_contribution"
+	}
+}
+
 # Scheduled Tasks
 # ---------------
 
