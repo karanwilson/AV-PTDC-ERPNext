@@ -10,10 +10,7 @@ frappe.ui.form.on('Container Return', {
 				frm.set_value('total_credit', (frm.doc.quantity * 40));
 				break;
 			case "Milk Bottle 0.5 Litre":
-				frm.set_value('total_credit', (frm.doc.quantity * 20))
-				break;
-			case "":
-				
+				frm.set_value('total_credit', (frm.doc.quantity * 25));
 		}
 	}
 });
