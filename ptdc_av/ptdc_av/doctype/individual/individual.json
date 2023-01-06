@@ -68,18 +68,20 @@
    "description": "TC = LS + IKS + PC",
    "fieldname": "total_contribution",
    "fieldtype": "Currency",
-   "label": "Total Contribution"
+   "label": "Total Contribution",
+   "read_only": 1
   },
   {
    "fetch_from": "participant_account.customer_name",
    "fieldname": "participant_name",
    "fieldtype": "Data",
-   "label": "Participant Name"
+   "label": "Participant Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-07 16:19:16.317043",
+ "modified": "2023-01-06 13:02:59.110096",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Individual",
