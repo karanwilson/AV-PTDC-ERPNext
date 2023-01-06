@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-01-05 20:07:09.518826",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "individual",
+  "individual_name",
+  "participant_account",
+  "participant_name",
+  "lunch_scheme",
+  "in_kind_scheme",
+  "personal_contribution",
+  "total_contribution"
+ ],
+ "fields": [
+  {
+   "fieldname": "individual",
+   "fieldtype": "Link",
+   "label": "Individual",
+   "options": "Individual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "CONTR-.MM.-.YYYY.-"
+  },
+  {
+   "fetch_from": "individual.individual_name",
+   "fieldname": "individual_name",
+   "fieldtype": "Data",
+   "label": "Individual Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "individual.participant_account",
+   "fieldname": "participant_account",
+   "fieldtype": "Data",
+   "label": " Participant Account",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "individual.lunch_scheme",
+   "fieldname": "lunch_scheme",
+   "fieldtype": "Currency",
+   "label": "Lunch Scheme"
+  },
+  {
+   "fetch_from": "individual.in_kind_scheme",
+   "fieldname": "in_kind_scheme",
+   "fieldtype": "Currency",
+   "label": "In Kind Scheme"
+  },
+  {
+   "fetch_from": "individual.personal_contribution",
+   "fieldname": "personal_contribution",
+   "fieldtype": "Currency",
+   "label": "Personal Contribution"
+  },
+  {
+   "default": "0",
+   "description": "TC = LS + IKS + PC",
+   "fieldname": "total_contribution",
+   "fieldtype": "Currency",
+   "label": "Total Contribution",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "individual.participant_name",
+   "fieldname": "participant_name",
+   "fieldtype": "Data",
+   "label": "Participant Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-01-06 13:19:17.905133",
+ "modified_by": "Administrator",
+ "module": "Ptdc Av",
+ "name": "Contribution Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
