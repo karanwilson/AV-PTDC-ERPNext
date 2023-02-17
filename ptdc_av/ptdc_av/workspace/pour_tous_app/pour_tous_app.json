@@ -14,7 +14,7 @@
  "is_standard": 1,
  "label": "Pour Tous App",
  "links": [],
- "modified": "2023-01-06 12:54:08.287605",
+ "modified": "2023-02-10 19:08:46.350520",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Pour Tous App",
@@ -56,6 +56,12 @@
    "doc_view": "List",
    "label": "Container Returns",
    "link_to": "Container Return",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "New",
+   "label": "Stock Entry",
+   "link_to": "Stock Entry",
    "type": "DocType"
   }
  ],

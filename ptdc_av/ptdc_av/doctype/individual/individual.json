@@ -13,16 +13,25 @@
   "participant_account",
   "participant_name",
   "contact_details",
+  "column_break_xp1qv",
   "lunch_scheme",
   "in_kind_scheme",
   "personal_contribution",
-  "total_contribution"
+  "total_contribution",
+  "temporarily_out_of_station_section",
+  "tos",
+  "tos_until",
+  "tos_contribution",
+  "column_break_cwlvy",
+  "pt_checkout_status",
+  "pt_checkout_action"
  ],
  "fields": [
   {
    "fieldname": "individual_name",
    "fieldtype": "Data",
-   "label": "Individual Name"
+   "label": "Individual Name",
+   "reqd": 1
   },
   {
    "fieldname": "master_list_number",
@@ -32,13 +41,15 @@
   {
    "fieldname": "fs_account_number",
    "fieldtype": "Int",
-   "label": "FS Account Number"
+   "label": "FS Account Number",
+   "reqd": 1
   },
   {
    "fieldname": "participant_account",
    "fieldtype": "Link",
    "label": "Participant Account",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "contact_details",
@@ -65,7 +76,7 @@
    "label": "Personal Contribution"
   },
   {
-   "description": "TC = LS + IKS + PC",
+   "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution)",
    "fieldname": "total_contribution",
    "fieldtype": "Currency",
    "label": "Total Contribution",
@@ -77,11 +88,56 @@
    "fieldtype": "Data",
    "label": "Participant Name",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "In case participant wishes to contribute, while away",
+   "fieldname": "tos_contribution",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "TOS Contribution"
+  },
+  {
+   "default": "0",
+   "fieldname": "tos",
+   "fieldtype": "Check",
+   "label": "TOS"
+  },
+  {
+   "fieldname": "temporarily_out_of_station_section",
+   "fieldtype": "Section Break",
+   "label": "Temporarily Out of Station"
+  },
+  {
+   "fieldname": "column_break_xp1qv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Date",
+   "fieldname": "tos_until",
+   "fieldtype": "Date",
+   "label": "TOS until"
+  },
+  {
+   "fieldname": "pt_checkout_status",
+   "fieldtype": "Data",
+   "label": "PT Checkout Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_cwlvy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pt_checkout_action",
+   "fieldtype": "Select",
+   "label": "Enable or Disable PT Checkout",
+   "options": "Enable\nDisable"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-01-06 13:02:59.110096",
+ "modified": "2023-02-17 23:43:21.198594",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Individual",
