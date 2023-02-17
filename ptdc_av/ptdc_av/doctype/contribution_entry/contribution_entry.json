@@ -15,6 +15,8 @@
   "lunch_scheme",
   "in_kind_scheme",
   "personal_contribution",
+  "tos",
+  "tos_contribution",
   "total_contribution"
  ],
  "fields": [
@@ -78,11 +80,26 @@
    "fieldtype": "Data",
    "label": "Participant Name",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "individual.tos",
+   "fieldname": "tos",
+   "fieldtype": "Check",
+   "label": "TOS",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "individual.tos_contribution",
+   "fieldname": "tos_contribution",
+   "fieldtype": "Currency",
+   "label": "TOS Contribution",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-17 12:33:47.636676",
+ "modified": "2023-02-18 00:21:44.264040",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Contribution Entry",
