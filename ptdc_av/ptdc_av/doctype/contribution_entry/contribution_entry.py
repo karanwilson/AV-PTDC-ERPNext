@@ -20,3 +20,9 @@ class ContributionEntry(Document):
 		contribution.insert()
 		contribution.submit()
 		return contribution.name
+
+	@frappe.whitelist()
+	def cancel_related_payment_entry(self, payment_entry_name):
+		doc = frappe.get_doc('Payment Entry', payment_entry_name)
+		doc.cancel()
+		return doc.docstatus

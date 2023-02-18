@@ -35,6 +35,14 @@ frappe.ui.form.on('Contribution Entry', {
 	},
 
 	before_cancel: function(frm) {
-		// cancel the related Payment Entry
+		frm.call('cancel_related_payment_entry', { payment_entry_name: frm.doc.related_payment_entry })
+			.then(r => {
+				if (r.message == 2) {
+					frappe.show_alert({
+						message:__('The related Payment Entry has also been cancelled'),
+						indicator:'red'
+					}, 5);
+				}
+			})
 	}
 });
