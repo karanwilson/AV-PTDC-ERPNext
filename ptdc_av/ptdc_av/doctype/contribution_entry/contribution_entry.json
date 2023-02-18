@@ -18,6 +18,7 @@
   "tos",
   "tos_contribution",
   "total_contribution",
+  "related_payment_entry",
   "amended_from"
  ],
  "fields": [
@@ -51,18 +52,21 @@
   },
   {
    "fetch_from": "individual.lunch_scheme",
+   "fetch_if_empty": 1,
    "fieldname": "lunch_scheme",
    "fieldtype": "Currency",
    "label": "Lunch Scheme"
   },
   {
    "fetch_from": "individual.in_kind_scheme",
+   "fetch_if_empty": 1,
    "fieldname": "in_kind_scheme",
    "fieldtype": "Currency",
    "label": "In Kind Scheme"
   },
   {
    "fetch_from": "individual.personal_contribution",
+   "fetch_if_empty": 1,
    "fieldname": "personal_contribution",
    "fieldtype": "Currency",
    "label": "Personal Contribution"
@@ -105,12 +109,18 @@
    "options": "Contribution Entry",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "related_payment_entry",
+   "fieldtype": "Data",
+   "label": "Related Payment Entry",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-18 10:21:29.538526",
+ "modified": "2023-02-18 12:27:01.388527",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Contribution Entry",
