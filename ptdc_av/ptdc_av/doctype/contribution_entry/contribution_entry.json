@@ -17,7 +17,8 @@
   "personal_contribution",
   "tos",
   "tos_contribution",
-  "total_contribution"
+  "total_contribution",
+  "amended_from"
  ],
  "fields": [
   {
@@ -95,11 +96,21 @@
    "fieldtype": "Currency",
    "label": "TOS Contribution",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Contribution Entry",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2023-02-18 00:21:44.264040",
+ "modified": "2023-02-18 10:21:29.538526",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Contribution Entry",
