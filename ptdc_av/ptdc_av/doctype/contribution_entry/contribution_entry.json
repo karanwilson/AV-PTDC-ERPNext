@@ -12,13 +12,15 @@
   "individual_name",
   "participant_account",
   "participant_name",
+  "column_break_cwm05",
   "lunch_scheme",
   "in_kind_scheme",
   "personal_contribution",
-  "tos",
-  "tos_contribution",
   "total_contribution",
   "related_payment_entry",
+  "temporarily_out_of_station_section",
+  "tos",
+  "tos_contribution",
   "amended_from"
  ],
  "fields": [
@@ -73,7 +75,7 @@
   },
   {
    "default": "0",
-   "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution)",
+   "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution);\nCalculated after 'Save'",
    "fieldname": "total_contribution",
    "fieldtype": "Currency",
    "label": "Total Contribution",
@@ -115,12 +117,22 @@
    "fieldtype": "Data",
    "label": "Related Payment Entry",
    "read_only": 1
+  },
+  {
+   "description": "These fields are set from the 'Individual' doctype",
+   "fieldname": "temporarily_out_of_station_section",
+   "fieldtype": "Section Break",
+   "label": "Temporarily Out of Station"
+  },
+  {
+   "fieldname": "column_break_cwm05",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-18 12:27:01.388527",
+ "modified": "2023-02-19 16:06:53.760552",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Contribution Entry",

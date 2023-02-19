@@ -76,7 +76,7 @@
    "label": "Personal Contribution"
   },
   {
-   "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution)",
+   "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution);\nCalculated after 'Save'",
    "fieldname": "total_contribution",
    "fieldtype": "Currency",
    "label": "Total Contribution",
@@ -137,7 +137,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-17 23:43:21.198594",
+ "modified": "2023-02-19 16:06:11.264393",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Individual",

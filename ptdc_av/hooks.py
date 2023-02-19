@@ -104,6 +104,9 @@ app_license = "MIT"
 # }
 
 doc_events = {
+	"Contribution Entry": {
+		"after_insert": "ptdc_av.api.add_contribution_payment_entry"
+	},
 	"Container Return": {
 		"after_insert": "ptdc_av.api.container_return_credit"
 	}
