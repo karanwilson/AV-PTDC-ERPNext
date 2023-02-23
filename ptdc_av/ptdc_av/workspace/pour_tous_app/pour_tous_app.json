@@ -1,4 +1,5 @@
 {
+ "cards_label": "Existing Records & Masters",
  "category": "Modules",
  "charts": [],
  "creation": "2023-01-05 12:23:01.342001",
@@ -13,8 +14,61 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Pour Tous App",
- "links": [],
- "modified": "2023-02-10 19:08:46.350520",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pour Tous Records",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Individual Participants",
+   "link_to": "Individual",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Contribution Entries",
+   "link_to": "Contribution Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "ERP Records",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Stock Entries",
+   "link_to": "Stock Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Purchase Invoices",
+   "link_to": "Purchase Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-02-23 14:55:59.837399",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Pour Tous App",
@@ -23,47 +77,47 @@
  "pin_to_top": 1,
  "shortcuts": [
   {
-   "doc_view": "",
+   "doc_view": "List",
    "label": "Participant Contribution",
    "link_to": "Participant Contribution",
    "type": "Report"
   },
   {
-   "doc_view": "",
+   "doc_view": "List",
    "label": "Participant Contribution - Current Month",
    "link_to": "Participant Contribution - Current Month",
    "type": "Report"
   },
   {
-   "doc_view": "",
+   "doc_view": "List",
    "label": "PA Contribution Custom",
    "link_to": "PA Contribution Custom",
    "type": "Report"
   },
   {
-   "doc_view": "List",
-   "label": "Individuals",
+   "doc_view": "New",
+   "label": "New Individual",
    "link_to": "Individual",
    "type": "DocType"
   },
   {
-   "doc_view": "List",
-   "label": "Contribution Entries",
+   "doc_view": "New",
+   "label": "New Contribution Entry",
    "link_to": "Contribution Entry",
    "type": "DocType"
   },
   {
-   "doc_view": "List",
-   "label": "Container Returns",
-   "link_to": "Container Return",
+   "doc_view": "New",
+   "label": "New Stock Entry",
+   "link_to": "Stock Entry",
    "type": "DocType"
   },
   {
    "doc_view": "New",
-   "label": "Stock Entry",
-   "link_to": "Stock Entry",
+   "label": "New Purchase Invoice",
+   "link_to": "Purchase Invoice",
    "type": "DocType"
   }
  ],
- "shortcuts_label": "Participant Contribution & Usage Reports"
+ "shortcuts_label": "Reports and New Records"
 }
