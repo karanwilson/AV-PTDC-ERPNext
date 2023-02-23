@@ -12,7 +12,7 @@ def execute(filters=None):
 	columns, data = [], []
 
 	columns = get_columns()
-	
+
 	data = get_data(filters)
 	if not data:
 		msgprint(_('No records found'))
@@ -28,28 +28,28 @@ def get_columns():
 			"fieldtype": "Data",
 			"width": 300,
 		},
-		
+
 		{
 			"fieldname": "address_line1",
 			"label": _("Community"),
 			"fieldtype": "Data",
 			"width": 250,
 		},
-		
+
 		{
 			"fieldname": "paid_amount",
 			"label": _("Contribution"),
 			"fieldtype": "Currency",
 			"width": 150,
 		},
-		
+
 		{
 			"fieldname": "remarks",
 			"label": _("Remarks"),
 			"fieldtype": "Small Text",
 			"width": 350,
 		},
-		
+
 		{
 			"fieldname": "posting_date",
 			"label": _("Received on"),
