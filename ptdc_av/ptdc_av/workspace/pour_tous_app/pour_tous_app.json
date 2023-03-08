@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"8nZrnP7bWB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"GO6g0eW3uF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant Contribution\",\"col\":3}},{\"id\":\"BVamN9A3pK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant Contribution - Current Month\",\"col\":3}},{\"id\":\"c5YZLh4SWX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PA Contribution Custom\",\"col\":3}},{\"id\":\"4ZjZDE7lF7\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"XTNvv6gFGg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>New Records</b></span>\",\"col\":12}},{\"id\":\"000yh5WjG7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Individual\",\"col\":3}},{\"id\":\"rvWBPgRP0W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Contribution Entry\",\"col\":3}},{\"id\":\"lrrAu3tk4D\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Stock Entry\",\"col\":3}},{\"id\":\"fFHBlHO96N\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Purchase Invoice\",\"col\":3}},{\"id\":\"wTxQe9pAZA\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LB8MiP-9Nh\",\"type\":\"card\",\"data\":{\"card_name\":\"Pour Tous Records\",\"col\":4}},{\"id\":\"YyA1DPfOU-\",\"type\":\"card\",\"data\":{\"card_name\":\"ERP Records\",\"col\":4}}]",
+ "content": "[{\"id\":\"8nZrnP7bWB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"GO6g0eW3uF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant Contribution\",\"col\":3}},{\"id\":\"BVamN9A3pK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Participant Contribution - Current Month\",\"col\":3}},{\"id\":\"c5YZLh4SWX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PA Contribution Custom\",\"col\":3}},{\"id\":\"4ZjZDE7lF7\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"XTNvv6gFGg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>New Records</b></span>\",\"col\":12}},{\"id\":\"000yh5WjG7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Individual\",\"col\":3}},{\"id\":\"rvWBPgRP0W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Contribution Entry\",\"col\":3}},{\"id\":\"lrrAu3tk4D\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Purchase Receipt\",\"col\":3}},{\"id\":\"wTxQe9pAZA\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LB8MiP-9Nh\",\"type\":\"card\",\"data\":{\"card_name\":\"Pour Tous Records\",\"col\":4}},{\"id\":\"YyA1DPfOU-\",\"type\":\"card\",\"data\":{\"card_name\":\"ERP Records\",\"col\":4}}]",
  "creation": "2023-02-23 23:04:50.147300",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -43,32 +43,22 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "ERP Records",
-   "link_count": 2,
+   "link_count": 1,
    "onboard": 0,
    "type": "Card Break"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Stock Entries",
+   "label": "Purchase Receipts",
    "link_count": 0,
-   "link_to": "Stock Entry",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Purchase Invoices",
-   "link_count": 0,
-   "link_to": "Purchase Invoice",
+   "link_to": "Purchase Receipt",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2023-02-23 23:36:34.506454",
+ "modified": "2023-03-08 18:06:06.317051",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Pour Tous App",
@@ -102,13 +92,6 @@
   },
   {
    "color": "Grey",
-   "doc_view": "New",
-   "label": "New Stock Entry",
-   "link_to": "Stock Entry",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
    "doc_view": "List",
    "label": "Participant Contribution",
    "link_to": "Participant Contribution",
@@ -117,8 +100,8 @@
   {
    "color": "Grey",
    "doc_view": "New",
-   "label": "New Purchase Invoice",
-   "link_to": "Purchase Invoice",
+   "label": "New Purchase Receipt",
+   "link_to": "Purchase Receipt",
    "type": "DocType"
   },
   {
