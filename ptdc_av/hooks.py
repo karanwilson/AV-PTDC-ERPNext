@@ -107,6 +107,9 @@ doc_events = {
 	"Contribution Entry": {
 		"after_insert": "ptdc_av.api.add_contribution_payment_entry"
 	},
+	"Purchase Receipt": {
+		"on_submit": "ptdc_av.api.update_selling_price_list"
+	},
 	"Container Return": {
 		"after_insert": "ptdc_av.api.container_return_credit"
 	}

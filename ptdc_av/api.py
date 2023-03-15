@@ -1,9 +1,9 @@
 import frappe
 from frappe import _
 
-# called from hook.py when new 'Contribution Entry' documents are inserted
+# called from hooks.py when new 'Contribution Entry' documents are inserted
 def add_contribution_payment_entry(doc, method):
-	if doc.total_contribution > 0:		# in case of TOS, when total contribution may be 0
+	if doc.total_contribution > 0:		# in case of TOS, the total contribution may be 0
 		contribution = frappe.get_doc({
 			"doctype": "Payment Entry",
 			"party_type": "Customer",
@@ -16,6 +16,19 @@ def add_contribution_payment_entry(doc, method):
 		contribution.submit()
 		# below statement updates the 'Contribution Entry' record with the related 'Payment Entry' record name
 		frappe.db.set_value('Contribution Entry', doc.name, 'related_payment_entry', contribution.name)
+
+
+# called from hooks.py when new 'Purchase Receipt Item' documents (child doctype of 'Purchase Receipt') are inserted
+def update_selling_price_list(doc, method):
+	item_price = frappe.get_doc({
+		"doctype": "Item Price",
+		"item_code": doc.items[0].item_code,
+		"uom": doc.items[0].uom,
+		"price_list": "Standard Selling",
+		"price_list_rate": doc.items[0].rate,
+		"batch_no": doc.items[0].batch_no
+	})
+	item_price.insert()
 
 
 # testing/temp feature: called from hooks.py when 'Container Returns' documents are inserted
