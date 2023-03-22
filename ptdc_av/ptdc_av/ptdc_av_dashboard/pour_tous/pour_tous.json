@@ -1,0 +1,20 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "width": "Half"
+  }
+ ],
+ "creation": "2023-03-18 16:59:57.755709",
+ "dashboard_name": "Pour Tous",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2023-03-18 17:05:57.100653",
+ "modified_by": "Administrator",
+ "module": "Ptdc Av",
+ "name": "Pour Tous",
+ "owner": "Administrator"
+}

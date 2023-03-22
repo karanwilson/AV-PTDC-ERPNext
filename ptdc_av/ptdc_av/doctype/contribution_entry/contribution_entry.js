@@ -26,12 +26,12 @@ frappe.ui.form.on('Contribution Entry', {
 	},
 
 	before_cancel(frm) {
-		frm.call('cancel_related_payment_entry', { payment_entry_name: frm.doc.related_payment_entry })
+		frm.call('cancel_related_payment_entry', { payment_entry_name: frm.doc.payment_entry })
 			.then(r => {
 				if (r.message == 2) {	// a cancelled document has a docstatus of 2
 					frappe.show_alert({
-						message:__('Cancelled the related Payment Entry'),
-						indicator:'red'
+						message: __('Cancelled the related Payment Entry'),
+						indicator: 'red'
 					}, 7);
 				}
 			})

@@ -1,6 +1,5 @@
 {
  "actions": [],
- "allow_rename": 1,
  "autoname": "naming_series:",
  "creation": "2023-01-05 20:07:09.518826",
  "doctype": "DocType",
@@ -17,7 +16,7 @@
   "in_kind_scheme",
   "personal_contribution",
   "total_contribution",
-  "related_payment_entry",
+  "payment_entry",
   "temporarily_out_of_station_section",
   "tos",
   "tos_contribution",
@@ -113,12 +112,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "related_payment_entry",
-   "fieldtype": "Data",
-   "label": "Related Payment Entry",
-   "read_only": 1
-  },
-  {
    "description": "These fields are set from the 'Individual' doctype",
    "fieldname": "temporarily_out_of_station_section",
    "fieldtype": "Section Break",
@@ -127,15 +120,22 @@
   {
    "fieldname": "column_break_cwm05",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_entry",
+   "fieldtype": "Data",
+   "label": "Payment Entry",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-02-19 16:06:53.760552",
+ "modified": "2023-03-22 11:29:33.922252",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Contribution Entry",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -152,5 +152,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

@@ -110,6 +110,9 @@ doc_events = {
 	"Purchase Receipt": {
 		"on_submit": "ptdc_av.api.update_selling_price_list"
 	},
+	"PT Purchase Order": {
+		"after_insert": "ptdc_av.api.create_purchase_order"
+	},
 	"Container Return": {
 		"after_insert": "ptdc_av.api.container_return_credit"
 	}

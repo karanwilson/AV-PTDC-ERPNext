@@ -4,7 +4,7 @@ from frappe import _
 # called from hooks.py when new 'Contribution Entry' documents are inserted
 def add_contribution_payment_entry(doc, method):
 	if doc.total_contribution > 0:		# in case of TOS, the total contribution may be 0
-		contribution = frappe.get_doc({
+		payment_entry = frappe.get_doc({
 			"doctype": "Payment Entry",
 			"party_type": "Customer",
 			"party": doc.participant_account,
@@ -12,10 +12,10 @@ def add_contribution_payment_entry(doc, method):
 			"paid_to": "Cash - PTDC",
 			"received_amount": doc.total_contribution
 		})
-		contribution.insert()
-		contribution.submit()
+		payment_entry.insert()
+		payment_entry.submit()
 		# below statement updates the 'Contribution Entry' record with the related 'Payment Entry' record name
-		frappe.db.set_value('Contribution Entry', doc.name, 'related_payment_entry', contribution.name)
+		frappe.db.set_value('Contribution Entry', doc.name, 'payment_entry', payment_entry.name)
 
 
 # called from hooks.py when new 'Purchase Receipt Item' documents (child doctype of 'Purchase Receipt') are inserted
@@ -29,6 +29,21 @@ def update_selling_price_list(doc, method):
 		"batch_no": doc.items[0].batch_no
 	})
 	item_price.insert()
+
+
+# called from hooks.py when new 'PT Purchase Order' documents are inserted
+def create_purchase_order(doc, supplier, item_code, qty, required_by):
+	# pass
+	purchase_order = frappe.get_doc({
+		"supplier": doc.supplier,
+		"item_code": doc.item_code,
+		"qty": doc.required_qty,
+		"schedule_date": doc.required_by
+	})
+	purchase_order.insert()
+	purchase_order.submit()
+	# below statement updates the 'PT Purchase Order' record with the related 'Purchase Order' record name
+	frappe.db.set_value('PT Purchase Order', doc.name, 'purchase_order', purchase_order.name)
 
 
 # testing/temp feature: called from hooks.py when 'Container Returns' documents are inserted
