@@ -108,10 +108,14 @@ doc_events = {
 		"after_insert": "ptdc_av.api.add_contribution_payment_entry"
 	},
 	"Purchase Receipt": {
-		"on_submit": "ptdc_av.api.update_selling_price_list"
+		"on_submit": "ptdc_av.api.update_selling_price_list",	# creates an 'Item Price' in the 'Selling Price List'
+		"before_cancel": "ptdc_av.api.delete_item_price"		# deletes the linked 'Item Price' before cancelling the Purchase Receipt
 	},
 	"PT Purchase Order": {
 		"after_insert": "ptdc_av.api.create_purchase_order"
+	},
+	"PT Purchase Receipt": {
+		"after_insert": "ptdc_av.api.create_purchase_receipt",
 	},
 	"Container Return": {
 		"after_insert": "ptdc_av.api.container_return_credit"

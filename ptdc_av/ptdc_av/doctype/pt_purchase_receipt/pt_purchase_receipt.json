@@ -1,7 +1,8 @@
 {
  "actions": [],
+ "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2023-03-21 12:55:03.884434",
+ "creation": "2023-03-24 12:12:31.150167",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -10,15 +11,20 @@
   "naming_series",
   "supplier",
   "item_code",
-  "column_break_2hedb",
-  "projected_qty",
-  "required_qty",
-  "required_by",
-  "section_break_agmvs",
-  "purchase_order",
+  "column_break_1egih",
+  "accepted_qty",
+  "rate",
+  "section_break_endyq",
+  "purchase_receipt",
   "amended_from"
  ],
  "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PT-PRE-.YYYY.-"
+  },
   {
    "fieldname": "supplier",
    "fieldtype": "Link",
@@ -36,30 +42,19 @@
    "reqd": 1
   },
   {
-   "fieldname": "required_by",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Required By",
-   "reqd": 1
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "options": "Currency"
   },
   {
-   "fieldname": "projected_qty",
-   "fieldtype": "Float",
-   "label": "Projected Qty",
-   "read_only": 1
+   "fieldname": "section_break_endyq",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "required_qty",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Required Qty",
-   "reqd": 1
-  },
-  {
-   "description": "ERPNext Internal Purchase Order",
-   "fieldname": "purchase_order",
+   "fieldname": "purchase_receipt",
    "fieldtype": "Data",
-   "label": "Purchase Order",
+   "label": "Purchase Receipt",
    "read_only": 1
   },
   {
@@ -67,32 +62,27 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "PT Purchase Order",
+   "options": "PT Purchase Receipt",
    "print_hide": 1,
    "read_only": 1
   },
   {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Series",
-   "options": "PT-POR-.YYYY.-"
+   "fieldname": "accepted_qty",
+   "fieldtype": "Float",
+   "label": "Accepted Qty"
   },
   {
-   "fieldname": "column_break_2hedb",
+   "fieldname": "column_break_1egih",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_agmvs",
-   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-03-29 12:06:10.528212",
+ "modified": "2023-03-28 16:01:57.827487",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
- "name": "PT Purchase Order",
+ "name": "PT Purchase Receipt",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
