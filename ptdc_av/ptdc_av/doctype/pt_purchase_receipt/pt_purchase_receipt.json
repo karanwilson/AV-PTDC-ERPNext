@@ -45,7 +45,8 @@
    "fieldname": "rate",
    "fieldtype": "Currency",
    "label": "Rate",
-   "options": "Currency"
+   "options": "Currency",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_endyq",
@@ -69,7 +70,8 @@
   {
    "fieldname": "accepted_qty",
    "fieldtype": "Float",
-   "label": "Accepted Qty"
+   "label": "Accepted Qty",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_1egih",
@@ -79,7 +81,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-03-28 16:01:57.827487",
+ "modified": "2023-03-30 10:38:37.172031",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "PT Purchase Receipt",
