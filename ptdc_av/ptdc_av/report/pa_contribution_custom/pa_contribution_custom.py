@@ -61,14 +61,16 @@ def get_columns():
 def get_data(filters):
 	if filters.month and filters.year_yyyy:
 		report_month_year = frappe.db.sql(
-			"""select `tabPayment Entry`.party_name, tabAddress.address_line1, `tabPayment Entry`.paid_amount,
+			"""
+			select `tabPayment Entry`.party_name, tabAddress.address_line1, `tabPayment Entry`.paid_amount,
 			`tabPayment Entry`.remarks, `tabPayment Entry`.posting_date
 			from `tabPayment Entry`
 			join `tabDynamic Link`
 			on `tabPayment Entry`.party = `tabDynamic Link`.link_name
 			join tabAddress
 			on `tabDynamic Link`.parent = tabAddress.name
-			where monthname(`tabPayment Entry`.posting_date)=%(month)s and year(`tabPayment Entry`.posting_date)=%(year)s""",
+			where monthname(`tabPayment Entry`.posting_date)=%(month)s and year(`tabPayment Entry`.posting_date)=%(year)s
+			""",
 			{
 				'month': filters.month,
 				'year' : filters.year_yyyy
@@ -79,14 +81,16 @@ def get_data(filters):
 
 	elif filters.month:
 		report_monthly = frappe.db.sql(
-			"""select `tabPayment Entry`.party_name, tabAddress.address_line1, `tabPayment Entry`.paid_amount,
+			"""
+			select `tabPayment Entry`.party_name, tabAddress.address_line1, `tabPayment Entry`.paid_amount,
 			`tabPayment Entry`.remarks, `tabPayment Entry`.posting_date
 			from `tabPayment Entry`
 			join `tabDynamic Link`
 			on `tabPayment Entry`.party = `tabDynamic Link`.link_name
 			join tabAddress
 			on `tabDynamic Link`.parent = tabAddress.name
-			where monthname(`tabPayment Entry`.posting_date)=%s""",
+			where monthname(`tabPayment Entry`.posting_date)=%s
+			""",
 			filters.month,
 			as_dict=True,
 		)
@@ -94,14 +98,16 @@ def get_data(filters):
 
 	elif filters.year_yyyy:
 		report_yearly = frappe.db.sql(
-			"""select `tabPayment Entry`.party_name, tabAddress.address_line1, `tabPayment Entry`.paid_amount,
+			"""
+			select `tabPayment Entry`.party_name, tabAddress.address_line1, `tabPayment Entry`.paid_amount,
 			`tabPayment Entry`.remarks, `tabPayment Entry`.posting_date
 			from `tabPayment Entry`
 			join `tabDynamic Link`
 			on `tabPayment Entry`.party = `tabDynamic Link`.link_name
 			join tabAddress
 			on `tabDynamic Link`.parent = tabAddress.name
-			where year(`tabPayment Entry`.posting_date)=%s""",
+			where year(`tabPayment Entry`.posting_date)=%s
+			""",
 			filters.year_yyyy,
 			as_dict=True,
 		)
