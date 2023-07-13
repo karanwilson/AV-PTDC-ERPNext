@@ -18,6 +18,15 @@ class PTPurchaseOrder(Document):
 		return query_bin[0][0]		# extracting the value from list query_bin
 
 	@frappe.whitelist()
+	def get_rate_amount(self, item_code, qty):
+		# to enable an exact match in cases of similar item_codes such as 20, 020, 0020, etc., which are all considered same when matched as Integers
+		# hence we need to type cast the item_code value as a String:-
+		item_code_str = str(item_code)
+		rate = frappe.db.get_value('Item Price', {'item_code': item_code_str, 'buying':'1'}, ['price_list_rate'])
+		amount = rate * qty
+		return rate,amount
+
+	@frappe.whitelist()
 	def cancel_related_purchase_order(self, purchase_order_name):
 		doc = frappe.get_doc('Purchase Order', purchase_order_name)
 		doc.cancel()

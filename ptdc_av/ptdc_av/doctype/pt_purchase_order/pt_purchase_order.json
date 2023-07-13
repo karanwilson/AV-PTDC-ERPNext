@@ -9,12 +9,10 @@
  "field_order": [
   "naming_series",
   "supplier",
-  "item_code",
-  "column_break_2hedb",
-  "projected_qty",
-  "required_qty",
-  "required_by",
+  "items_section",
+  "pt_po_items",
   "section_break_agmvs",
+  "total",
   "purchase_order",
   "amended_from"
  ],
@@ -28,37 +26,10 @@
    "reqd": 1
   },
   {
-   "fieldname": "item_code",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Item Code",
-   "options": "Item",
-   "reqd": 1
-  },
-  {
-   "fieldname": "required_by",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Required By",
-   "reqd": 1
-  },
-  {
-   "fieldname": "projected_qty",
-   "fieldtype": "Float",
-   "label": "Projected Qty",
-   "read_only": 1
-  },
-  {
-   "fieldname": "required_qty",
-   "fieldtype": "Float",
-   "in_list_view": 1,
-   "label": "Required Qty",
-   "reqd": 1
-  },
-  {
    "description": "ERPNext Internal Purchase Order",
    "fieldname": "purchase_order",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Purchase Order",
    "read_only": 1
   },
@@ -78,18 +49,33 @@
    "options": "PT-POR-.YYYY.-"
   },
   {
-   "fieldname": "column_break_2hedb",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "section_break_agmvs",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "pt_po_items",
+   "fieldtype": "Table",
+   "options": "PT Purchase Order Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-03-29 12:06:10.528212",
+ "modified": "2023-07-13 16:16:31.116865",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "PT Purchase Order",

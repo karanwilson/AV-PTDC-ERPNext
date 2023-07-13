@@ -82,6 +82,7 @@
    "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution);\nCalculated after 'Save'",
    "fieldname": "total_contribution",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Total Contribution",
    "read_only": 1
   },
@@ -151,10 +152,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-02-19 20:56:24.784515",
+ "modified": "2023-07-13 16:21:04.432249",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Individual",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -171,5 +173,6 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": []
 }

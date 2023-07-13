@@ -42,6 +42,7 @@ def create_purchase_order(doc, method):
 		"supplier": doc.supplier,
 	})
 	# 'Purchase Order Item' is a child doctype of 'Purchase Order' document
+	"""
 	purchase_order_item = frappe.get_doc({
 		"doctype": "Purchase Order Item",
 		"item_code": doc.item_code,
@@ -51,7 +52,18 @@ def create_purchase_order(doc, method):
 		"parenttype": "Purchase Order",
 		"parentfield": "items"
 	})
-	purchase_order.items.append(purchase_order_item)
+	"""
+	for item in doc.pt_po_items:
+		purchase_order_item = frappe.get_doc({
+			"doctype": "Purchase Order Item",
+			"item_code": item.item_code,
+			"qty": item.required_qty,
+			"schedule_date": item.required_by,
+			"parent": purchase_order.name,
+			"parenttype": "Purchase Order",
+			"parentfield": "items"
+		})
+		purchase_order.items.append(purchase_order_item)
 	purchase_order.insert()
 	purchase_order.submit()
 	doc.purchase_order = purchase_order.name	# updates the 'PT Purchase Order' record with the related 'Purchase Order' record name
