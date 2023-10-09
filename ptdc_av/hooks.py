@@ -198,3 +198,19 @@ user_data_fields = [
 #	"ptdc_av.auth.validate"
 # ]
 
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                (
+                    "Item-item_add_on",   # Item Add-On for configuring Item-add-ons bundling
+                    "Item-uom_int",   #'UOM INT' for fetching stock_uom.must_be_whole_number setting-
+                    # -from Item doctype - used in code to prevent decimal entries in Integer values
+				)
+			]
+		]
+	}
+]
