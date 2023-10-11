@@ -206,7 +206,8 @@ fixtures = [
                 "name",
                 "in",
                 (
-                    "Item-item_add_on",   # Item Add-On for configuring Item-add-ons bundling
+					"Item-select_add_on_item",	# Select the Add-On Item for configuring Item-add-ons bundling
+					"Item-item_add_on",   # Automatically pulls the item_code from the above selection
                     "Item-uom_int",   #'UOM INT' for fetching stock_uom.must_be_whole_number setting-
                     # -from Item doctype - used in code to prevent decimal entries in Integer values
 				)
