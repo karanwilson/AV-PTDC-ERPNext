@@ -4,12 +4,13 @@ from frappe import _
 # called from hooks.py when new 'Contribution Entry' documents are inserted
 def add_contribution_payment_entry(doc, method):
 	if doc.total_contribution > 0:		# in case of TOS, the total contribution may be 0
+		account = frappe.get_value("Mode of Payment Account", {"parent": "Cash"}, "default_account")
 		payment_entry = frappe.get_doc({
 			"doctype": "Payment Entry",
 			"party_type": "Customer",
 			"party": doc.participant_account,
 			"paid_amount": doc.total_contribution,
-			"paid_to": "Cash - PTDC",
+			"paid_to": account,
 			"received_amount": doc.total_contribution
 		})
 		payment_entry.insert()
