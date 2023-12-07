@@ -115,11 +115,14 @@ doc_events = {
 		"after_insert": "ptdc_av.api.create_purchase_order"
 	},
 	"PT Purchase Receipt": {
-		"after_insert": "ptdc_av.api.create_purchase_receipt",
+		"after_insert": "ptdc_av.api.create_purchase_receipt"
 	},
-	"Container Return": {
-		"after_insert": "ptdc_av.api.container_return_credit"
-	}
+    "Invent_bill_2023_11": {
+        "on_submit": "ptdc_av.api.invent_billing_action"
+	},
+	#"Container Return": {
+	#	"after_insert": "ptdc_av.api.container_return_credit"
+	#}
 }
 
 # Scheduled Tasks
