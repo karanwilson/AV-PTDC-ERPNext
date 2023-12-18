@@ -20,6 +20,15 @@ frappe.ui.form.on('PT Purchase Order', {
 	},
 	*/
 
+	supplier(frm) {
+		frm.set_query('item_code', 'pt_po_items', () => {
+			return {
+				query: 'ptdc_av.api.supplier_items',
+				txt: frm.doc.supplier
+			}
+		})
+	},
+
 	before_save(frm) {
 		var order_total=0;
 		frm.doc.pt_po_items.forEach(item => {

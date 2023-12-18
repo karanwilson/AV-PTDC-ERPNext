@@ -72,6 +72,29 @@ def create_purchase_order(doc, method):
 	doc.purchase_order = purchase_order.name	# updates the 'PT Purchase Order' record with the related 'Purchase Order' record name
 
 
+# called from pt_purchase_order.js
+@frappe.whitelist()
+@frappe.validate_and_sanitize_search_inputs
+def supplier_items(doctype, txt, searchfield, start, page_len, filters):
+	return frappe.db.sql(
+		"""
+		select distinct parent, tabItem.item_name, tabItem.item_group
+		from `tabItem Supplier`, tabItem
+		where `tabItem Supplier`.parent = tabItem.name and supplier = %s
+		""",
+		txt
+	)
+	#return frappe.db.sql(
+	#	"""
+	#	select tabItem.item_code, tabItem.item_name, tabItem.item_group
+	#	from tabItem
+	#	join tabBatch
+	#	on tabItem.item_code = tabBatch.item
+	#	where tabBatch.supplier = %s
+	#	""",
+	#	txt
+	#)
+
 # called from hooks.py when new 'PT Purchase Receipt' documents are inserted
 def create_purchase_receipt(doc, method):
 	purchase_receipt = frappe.get_doc({
