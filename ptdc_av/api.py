@@ -76,6 +76,8 @@ def create_purchase_order(doc, method):
 @frappe.whitelist()
 @frappe.validate_and_sanitize_search_inputs
 def supplier_items(doctype, txt, searchfield, start, page_len, filters):
+	# using 'distinct' in the sql statement below because the current testing instance has 4 rows for each supplier-item combination in `tabItem Supplier`
+	# this could be because the masters were reuploaded more than once (after deleting company/accounting data) during the testing..
 	return frappe.db.sql(
 		"""
 		select distinct parent, tabItem.item_name, tabItem.item_group
