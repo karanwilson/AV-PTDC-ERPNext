@@ -15,7 +15,9 @@ class PTPurchaseOrder(Document):
 		bin = frappe.qb.DocType('Bin')
 		# bin is a doctype that stores the 'Projected Qty' docfield
 		query_bin = frappe.qb.from_(bin).select(bin.projected_qty).where(bin.item_code == item_code).run()
-		return query_bin[0][0]		# extracting the value from list query_bin
+		if query_bin:
+			return query_bin[0][0]		# extracting the value from list query_bin
+		return
 
 	@frappe.whitelist()
 	def get_rate_amount(self, item_code, qty):
@@ -23,7 +25,9 @@ class PTPurchaseOrder(Document):
 		# hence we need to type cast the item_code value as a String:-
 		item_code_str = str(item_code)
 		rate = frappe.db.get_value('Item Price', {'item_code': item_code_str, 'buying':'1'}, ['price_list_rate'])
-		amount = rate * qty
+		if rate:
+			amount = rate * qty
+		else: amount = rate = 0
 		return rate,amount
 
 	@frappe.whitelist()

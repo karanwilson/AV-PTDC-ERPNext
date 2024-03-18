@@ -218,3 +218,5 @@ fixtures = [
 		]
 	}
 ]
+
+website_route_rules = [{'from_route': '/ptdc_av_spa/<path:app_path>', 'to_route': 'ptdc_av_spa'},]

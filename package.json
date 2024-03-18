@@ -1,0 +1,14 @@
+{
+  "name": "ptdc_av",
+  "version": "1.0.0",
+  "description": "Participant Management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd ptdc_av_spa && yarn dev",
+    "build": "cd ptdc_av_spa && yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

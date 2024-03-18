@@ -1,0 +1,23 @@
+{
+  "name": "ptdc_av_spa",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --base=/assets/ptdc_av/ptdc_av_spa/ && yarn copy-html-entry",
+    "preview": "vite preview",
+    "copy-html-entry": "cp ../ptdc_av/public/ptdc_av_spa/index.html ../ptdc_av/www/ptdc_av_spa.html"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.5.1",
+    "vue": "^3.3.11",
+    "vue-router": "^4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vue-tsc": "^1.8.25"
+  }
+}

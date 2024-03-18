@@ -29,8 +29,17 @@ frappe.ui.form.on('PT Purchase Order', {
 		})
 	},
 
+	// the below event function was added to test the tooltip mouseover feature
+	onload_post_render(frm) {
+		$('[data-fieldname=required_qty]').mouseover(function(){
+			$('[data-fieldname=required_qty]').tooltip({
+				title: __('This is the Required Quantity')
+			});
+		})
+	},
+
 	before_save(frm) {
-		var order_total=0;
+		let order_total=0;
 		frm.doc.pt_po_items.forEach(item => {
 			order_total += item.amount;
 		});
@@ -51,14 +60,20 @@ frappe.ui.form.on('PT Purchase Order', {
 });
 
 frappe.ui.form.on('PT Purchase Order Item', {
-	item_code: function(frm, cdt, cdn) {
-		var item = locals[cdt][cdn];
+	item_code(frm, cdt, cdn) {
+		let item = locals[cdt][cdn];
 
 		if (item.item_code) {
 			frm.call('query_projected_qty', { item_code: item.item_code})
 				.then(r => {
-					item.projected_qty = r.message;
-					item.required_qty = r.message;
+					if (r.message) {
+						item.projected_qty = r.message;
+						item.required_qty = r.message;
+					}
+					else {
+						//item.projected_qty = 1.0;
+						item.required_qty = 1.0;
+					}
 					frm.refresh_field('pt_po_items');	// pt_po_items is the field name for child table "PT Purchase Order Item" in parent "PT Purchase Order"
 				}).then(r => {
 					frm.call('get_rate_amount', { 
@@ -79,8 +94,8 @@ frappe.ui.form.on('PT Purchase Order Item', {
 		}
 	},
 
-	required_qty: function(frm, cdt, cdn) {
-		var item = locals[cdt][cdn];
+	required_qty(frm, cdt, cdn) {
+		let item = locals[cdt][cdn];
 
 		if (item.required_qty) {
 			frm.call('get_rate_amount', { 
@@ -99,12 +114,11 @@ frappe.ui.form.on('PT Purchase Order Item', {
 		}
 	},
 
-	rate: function(frm, cdt, cdn) {
-		var item = locals[cdt][cdn];
-
+	rate(frm, cdt, cdn) {
+		let item = locals[cdt][cdn];
 		if (item.rate) {
 			item.amount = item.rate * item.required_qty;
 			frm.refresh_field('pt_po_items');	// pt_po_items is the field name for child table "PT Purchase Order Item" in parent "PT Purchase Order"
 		}
-	}
+	},
 })
