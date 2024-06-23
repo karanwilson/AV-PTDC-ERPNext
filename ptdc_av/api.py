@@ -1,23 +1,9 @@
 import frappe
 from frappe import _
-
-# called from hooks.py when new 'Contribution Entry' documents are inserted
-def add_contribution_payment_entry(doc, method):
-	if doc.total_contribution > 0:		# in case of TOS, the total contribution may be 0
-		payment_entry = frappe.get_doc({
-			"doctype": "Payment Entry",
-			"party_type": "Customer",
-			"party": doc.participant_account,
-			"paid_amount": doc.total_contribution,
-			"paid_to": "Cash - PTDC",
-			"received_amount": doc.total_contribution
-		})
-		payment_entry.insert()
-		payment_entry.submit()
-		doc.payment_entry = payment_entry.name		# updates the 'Contribution Entry' record with the related 'Payment Entry' record name
+from erpnext.accounts.doctype.sales_invoice.sales_invoice import get_bank_cash_account
 
 
-# called from hooks.py when new 'Purchase Receipt' documents are inserted
+# called from hooks.py when a 'Purchase Receipt' document is submitted
 # below we access 'Purchase Receipt Item' documents (via items[0]), which are a child doctype of 'Purchase Receipt' documents
 def update_selling_price_list(doc, method):
 	item_price = frappe.get_doc({
@@ -35,6 +21,60 @@ def delete_item_price(doc, method):
 	frappe.delete_doc('Item Price', item_price_name[0].name)	# item_price_name[0].name extracts the value of key 'name'
 
 
+# called from hooks.py when "Sales Invoice" documents are submitted
+def returns_payment_entry(doc, method):
+	if doc.status == "Return":
+		mop_cash_list = [
+        	i.mode_of_payment
+        	for i in doc.payments
+        	if "cash" in i.mode_of_payment.lower() and i.type == "Cash"
+    	]
+		if len(mop_cash_list) > 0:
+			cash_account = get_bank_cash_account(mop_cash_list[0], doc.company)
+		else:
+			cash_account = {
+            	"account": frappe.get_value(
+                	"Company", doc.company, "default_cash_account"
+            	)
+        }
+
+    	# creating advance payment
+		advance_payment_entry = frappe.get_doc(
+            {
+               	"doctype": "Payment Entry",
+               	#"mode_of_payment": "Cash",
+               	"paid_to": cash_account["account"],
+               	"payment_type": "Receive",
+               	"party_type": "Customer",
+               	"party": doc.customer,
+               	"paid_amount": -(doc.grand_total),
+               	"received_amount": -(doc.grand_total),
+               	"company": doc.company,
+            }
+        )
+
+		advance_payment_entry.flags.ignore_permissions = True
+		frappe.flags.ignore_account_permission = True
+		advance_payment_entry.save()
+		advance_payment_entry.submit()
+
+
+"""
+# called from hooks.py when new 'Contribution Entry' documents are inserted
+def add_contribution_payment_entry(doc, method):
+	if doc.total_contribution > 0:		# in case of TOS, the total contribution may be 0
+		payment_entry = frappe.get_doc({
+			"doctype": "Payment Entry",
+			"party_type": "Customer",
+			"party": doc.participant_account,
+			"paid_amount": doc.total_contribution,
+			"paid_to": "Cash - PTDC",
+			"received_amount": doc.total_contribution
+		})
+		payment_entry.insert()
+		payment_entry.submit()
+		doc.payment_entry = payment_entry.name		# updates the 'Contribution Entry' record with the related 'Payment Entry' record name
+
 # called from hooks.py when new 'PT Purchase Order' documents are inserted
 def create_purchase_order(doc, method):
 	purchase_order = frappe.get_doc({
@@ -42,17 +82,17 @@ def create_purchase_order(doc, method):
 		"supplier": doc.supplier,
 	})
 	# 'Purchase Order Item' is a child doctype of 'Purchase Order' document
-	"""
-	purchase_order_item = frappe.get_doc({
-		"doctype": "Purchase Order Item",
-		"item_code": doc.item_code,
-		"qty": doc.required_qty,
-		"schedule_date": doc.required_by,
-		"parent": purchase_order.name,
-		"parenttype": "Purchase Order",
-		"parentfield": "items"
-	})
-	"""
+
+	#purchase_order_item = frappe.get_doc({
+	#	"doctype": "Purchase Order Item",
+	#	"item_code": doc.item_code,
+	#	"qty": doc.required_qty,
+	#	"schedule_date": doc.required_by,
+	#	"parent": purchase_order.name,
+	#	"parenttype": "Purchase Order",
+	#	"parentfield": "items"
+	#})
+
 	for item in doc.pt_po_items:
 		purchase_order_item = frappe.get_doc({
 			"doctype": "Purchase Order Item",
@@ -105,3 +145,4 @@ def container_return_credit(doc, method):
 	})
 	return_credit.insert()
 	return_credit.submit()
+"""
