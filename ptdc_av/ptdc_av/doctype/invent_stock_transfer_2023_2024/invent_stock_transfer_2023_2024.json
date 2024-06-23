@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-29 11:42:43.663491",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "product_id",
+  "transfer_description",
+  "transfer_quantity",
+  "batch_id",
+  "date_created"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_id",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Product ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transfer_quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Transfer Quantity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "batch_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Batch ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_created",
+   "fieldtype": "Datetime",
+   "label": "Date Created",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transfer_description",
+   "fieldtype": "Data",
+   "label": "Transfer Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-11-29 16:06:34.315931",
+ "modified_by": "Administrator",
+ "module": "Ptdc Av",
+ "name": "Invent_stock_transfer_2023_2024",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

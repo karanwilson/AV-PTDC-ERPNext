@@ -113,7 +113,10 @@ doc_events = {
 	},
     "Sales Invoice": {
         "on_submit": "ptdc_av.api.returns_payment_entry"
-	}
+	},
+    #"Invent_bill_2023_11": {
+    #    "on_submit": "ptdc_av.api.invent_billing_action"
+	#},
 	#"PT Purchase Order": {
 	#	"after_insert": "ptdc_av.api.create_purchase_order"
 	#},
