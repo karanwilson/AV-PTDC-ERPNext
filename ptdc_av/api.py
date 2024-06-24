@@ -1,8 +1,8 @@
 import frappe
 from frappe import _
 from erpnext.accounts.doctype.sales_invoice.sales_invoice import get_bank_cash_account
-from frappe.utils import flt
-from posawesome.posawesome.api.posapp import get_available_credit, redeeming_customer_credit
+#from frappe.utils import flt
+#from posawesome.posawesome.api.posapp import get_available_credit, redeeming_customer_credit
 
 
 # called from hooks.py when a 'Purchase Receipt' document is submitted
