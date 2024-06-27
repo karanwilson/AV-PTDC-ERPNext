@@ -12,7 +12,19 @@
  "page_name": "ptdc_av",
  "roles": [
   {
-   "role": "Administrator"
+   "role": "Sales User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
   }
  ],
  "script": null,
