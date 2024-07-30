@@ -104,24 +104,27 @@ app_license = "MIT"
 # }
 
 doc_events = {
-	#"Contribution Entry": {
-	#	"after_insert": "ptdc_av.api.add_contribution_payment_entry"
-	#},
 	"Purchase Receipt": {
-		"on_submit": "ptdc_av.api.update_selling_price_list",	# creates an 'Item Price' in the 'Selling Price List'
-		"before_cancel": "ptdc_av.api.delete_item_price"		# deletes the linked 'Item Price' before cancelling the Purchase Receipt
+		"on_submit": "ptdc_av.api.update_selling_price_list", # creates an 'Item Price' in the 'Selling Price List'
+		"before_cancel": "ptdc_av.api.delete_item_price" # deletes the linked 'Item Price' before cancelling the Purchase Receipt
 	},
     "Sales Invoice": {
-        "on_submit": "ptdc_av.api.returns_payment_entry"
+        "on_submit": "ptdc_av.api.payment_entry_for_return" # creates 'Payment Entry' for item returns
 	},
-    #"Invent_bill_2023_11": {
-    #    "on_submit": "ptdc_av.api.invent_billing_action"
+    "Payment Entry": {
+        "before_save": "ptdc_av.api.make_fs_transfer" # initiates an FS transfer for Participant Contributions (Monthly and Extra)
+	}
+	#"Contribution Entry": {
+	#	"after_insert": "ptdc_av.api.add_contribution_payment_entry"
 	#},
 	#"PT Purchase Order": {
 	#	"after_insert": "ptdc_av.api.create_purchase_order"
 	#},
 	#"PT Purchase Receipt": {
 	#	"after_insert": "ptdc_av.api.create_purchase_receipt",
+	#},
+    #"Invent_bill_2023_11": {
+    #    "on_submit": "ptdc_av.invent.invent_billing_action"
 	#},
 	#"Container Return": {
 	#	"after_insert": "ptdc_av.api.container_return_credit"
@@ -212,10 +215,13 @@ fixtures = [
                 "name",
                 "in",
                 (
-					"Item-select_add_on_item",	# Select the Add-On Item for configuring Item-add-ons bundling
-					"Item-item_add_on",   # Automatically pulls the item_code from the above selection
-                    "Item-uom_int",   #'UOM INT' for fetching stock_uom.must_be_whole_number setting-
-                    # -from Item doctype - used in code to prevent decimal entries in Integer values
+					"Item-select_add_on_item", # Select the Add-On Item for configuring Item-add-ons bundling
+					"Item-item_add_on", # Automatically pulls the item_code from the above selection
+                    "Item-uom_int", #'UOM INT' for fetching stock_uom.must_be_whole_number setting from Item doctype
+                    				#-used in code to prevent decimal entries in Integer values
+                    "Payment Entry-contribution_type", # for Participant Contributions
+                    "Payment Entry-fs_transfer_status", # for Participant Contributions
+                    "Payment Entry-fs_transaction_id" # for Participant Contributions
 				)
 			]
 		]

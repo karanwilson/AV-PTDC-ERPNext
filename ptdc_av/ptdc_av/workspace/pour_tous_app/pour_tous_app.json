@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"8nZrnP7bWB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Pour Tous Reports</span>\",\"col\":12}},{\"id\":\"gJ5dwcYYg6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier - Items\",\"col\":3}},{\"id\":\"c5YZLh4SWX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PA Contribution Custom\",\"col\":3}},{\"id\":\"BVamN9A3pK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PA Contribution - Current Month\",\"col\":4}},{\"id\":\"JQBWLoLM0U\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"XTNvv6gFGg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>New Records</b></span>\",\"col\":12}},{\"id\":\"000yh5WjG7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Individual Participant\",\"col\":3}},{\"id\":\"rvWBPgRP0W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contribution Entry\",\"col\":3}},{\"id\":\"aKo10J3bnJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PT Purchase Order\",\"col\":3}},{\"id\":\"Z91xApRU4B\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PT Purchase Receipt\",\"col\":3}},{\"id\":\"wTxQe9pAZA\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LB8MiP-9Nh\",\"type\":\"card\",\"data\":{\"card_name\":\"Pour Tous Records\",\"col\":4}},{\"id\":\"YyA1DPfOU-\",\"type\":\"card\",\"data\":{\"card_name\":\"ERPNext Records\",\"col\":4}}]",
+ "content": "[{\"id\":\"8nZrnP7bWB\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Pour Tous Reports</span>\",\"col\":12}},{\"id\":\"gJ5dwcYYg6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier - Items\",\"col\":3}},{\"id\":\"c5YZLh4SWX\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PA Contribution Custom\",\"col\":3}},{\"id\":\"BVamN9A3pK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PA Contribution - Current Month\",\"col\":4}},{\"id\":\"JQBWLoLM0U\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"XTNvv6gFGg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>New Records</b></span>\",\"col\":12}},{\"id\":\"000yh5WjG7\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Individual Participant\",\"col\":3}},{\"id\":\"rvWBPgRP0W\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contribution Entry\",\"col\":3}},{\"id\":\"aKo10J3bnJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PT Purchase Order\",\"col\":3}},{\"id\":\"Z91xApRU4B\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PT Purchase Receipt\",\"col\":3}},{\"id\":\"wTxQe9pAZA\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"LB8MiP-9Nh\",\"type\":\"card\",\"data\":{\"card_name\":\"Pour Tous Records\",\"col\":4}},{\"id\":\"YyA1DPfOU-\",\"type\":\"card\",\"data\":{\"card_name\":\"ERPNext Records\",\"col\":4}},{\"id\":\"FJb8AafbxN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PTDC App\",\"col\":3}}]",
  "creation": "2023-02-23 23:04:50.147300",
  "custom_blocks": [],
  "docstatus": 0,
@@ -99,7 +99,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-06-27 12:40:00.904975",
+ "modified": "2024-07-24 09:59:40.746023",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Pour Tous App",
@@ -117,6 +117,13 @@
    "label": "PA Contribution Custom",
    "link_to": "PA Contribution Custom",
    "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "PTDC App",
+   "link_to": "ptdc_av",
+   "type": "Page"
   },
   {
    "color": "Grey",

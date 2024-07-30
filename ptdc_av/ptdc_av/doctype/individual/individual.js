@@ -23,7 +23,8 @@ frappe.ui.form.on('Individual', {
 
 	before_save: function(frm) {
 		if (!frm.doc.tos) {
-			frm.set_value('total_contribution', (frm.doc.lunch_scheme + frm.doc.in_kind_scheme + frm.doc.personal_contribution));
+			//frm.set_value('total_contribution', (frm.doc.lunch_scheme + frm.doc.in_kind_scheme + frm.doc.personal_contribution));
+			frm.set_value('total_contribution', (frm.doc.personal_contribution));
 		} else {
 			frm.set_value('total_contribution', frm.doc.tos_contribution);
 		}

@@ -64,12 +64,14 @@
    "default": "0",
    "fieldname": "lunch_scheme",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Lunch Scheme"
   },
   {
    "default": "0",
    "fieldname": "in_kind_scheme",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "In Kind Scheme"
   },
   {
@@ -79,7 +81,8 @@
    "label": "Personal Contribution"
   },
   {
-   "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution);\nCalculated after 'Save'",
+   "default": "0",
+   "description": "Total Contribution (TC) = Personal Contribution\nor if TOS: (TC = TOS Contribution);\nCalculated after 'Save'\n## In case of LS and IKS: (TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution);",
    "fieldname": "total_contribution",
    "fieldtype": "Currency",
    "in_list_view": 1,
@@ -152,7 +155,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-07-13 16:21:04.432249",
+ "modified": "2024-07-22 10:34:37.605231",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Individual",

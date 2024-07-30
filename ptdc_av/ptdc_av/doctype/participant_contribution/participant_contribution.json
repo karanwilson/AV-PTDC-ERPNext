@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-21 23:47:10.214758",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "individual",
+  "individual_name",
+  "participant",
+  "participant_name",
+  "fs_account",
+  "contribution_type",
+  "contribution_amount",
+  "fs_transfer_status",
+  "fs_transaction_id",
+  "payment_entry_id",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "description": "In case this field is used, then the Participant field can be disabled, as this will also fetch the Participant information.\nThis can be configured based on user preference.",
+   "fieldname": "individual",
+   "fieldtype": "Link",
+   "label": "Individual",
+   "options": "Individual"
+  },
+  {
+   "fetch_from": "individual.individual_name",
+   "fieldname": "individual_name",
+   "fieldtype": "Data",
+   "label": "Individual Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "participant",
+   "fieldtype": "Link",
+   "label": "Participant",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "participant.customer_name",
+   "fieldname": "participant_name",
+   "fieldtype": "Data",
+   "label": "Participant Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "individual.fs_account_number",
+   "fieldname": "fs_account",
+   "fieldtype": "Int",
+   "label": "FS Account",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "contribution_type",
+   "fieldtype": "Select",
+   "label": "Contribution Type",
+   "options": "\nMonthly Contribution\nExtra Contribution",
+   "reqd": 1
+  },
+  {
+   "description": "If 'Monthly Contribution': fetch 'Total Contribution' from 'Individual' doctype;\nIf 'Extra Contribution': record the 'Contribution Amount'",
+   "fieldname": "contribution_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Contribution Amount",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "fs_transfer_status",
+   "fieldtype": "Data",
+   "label": "FS Transfer Status",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "fs_transaction_id",
+   "fieldtype": "Data",
+   "label": "FS transaction ID",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "payment_entry_id",
+   "fieldtype": "Data",
+   "label": "Payment Entry ID",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Participant Contribution",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-07-24 11:39:58.921214",
+ "modified_by": "Administrator",
+ "module": "Ptdc Av",
+ "name": "Participant Contribution",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
