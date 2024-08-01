@@ -219,9 +219,11 @@ fixtures = [
 					"Item-item_add_on", # Automatically pulls the item_code from the above selection
                     "Item-uom_int", #'UOM INT' for fetching stock_uom.must_be_whole_number setting from Item doctype
                     				#-used in code to prevent decimal entries in Integer values
-                    "Payment Entry-contribution_type", # for Participant Contributions
-                    "Payment Entry-fs_transfer_status", # for Participant Contributions
-                    "Payment Entry-fs_transaction_id" # for Participant Contributions
+                    "Payment Entry-custom_contribution_type", # for FS Transactions
+                    "Payment Entry-custom_fs_transfer_status", # for FS Transactions
+                    "Payment Entry-custom_fs_transaction_id" # for FS Transactions
+                    "Payment Entry-custom_fs_account_to" # for FS Transactions
+                    "Customer-custom_fs_account_number" # for FS Transactions
 				)
 			]
 		]
