@@ -112,7 +112,8 @@ doc_events = {
         "on_submit": "ptdc_av.api.payment_entry_for_return" # creates 'Payment Entry' for item returns
 	},
     "Payment Entry": {
-        "before_save": "ptdc_av.api.make_fs_transfer" # initiates an FS transfer for Participant Contributions (Monthly and Extra)
+        "before_save": "payments.payment_gateways.doctype.fs_settings.fs_settings.add_transfer"
+        # initiates an FS transfer for Participant Contributions (Monthly and Extra)
 	}
 	#"Contribution Entry": {
 	#	"after_insert": "ptdc_av.api.add_contribution_payment_entry"

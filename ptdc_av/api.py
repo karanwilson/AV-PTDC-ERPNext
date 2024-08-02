@@ -3,12 +3,6 @@ from frappe import _
 from erpnext.accounts.doctype.sales_invoice.sales_invoice import get_bank_cash_account
 
 
-# called from hooks.py - initiates an FS transfer for the Participant Contributions (Monthly and Extra)
-def make_fs_transfer(doc, method):
-	if doc.contribution_type:
-		pass
-
-
 # called from hooks.py when a 'Purchase Receipt' document is submitted
 # below we access 'Purchase Receipt Item' documents (via items[0]), which are a child doctype of 'Purchase Receipt' documents
 def update_selling_price_list(doc, method):
