@@ -112,7 +112,7 @@ doc_events = {
         "on_submit": "ptdc_av.api.payment_entry_for_return" # creates 'Payment Entry' for item returns
 	},
     "Payment Entry": {
-        "before_save": "payments.payment_gateways.doctype.fs_settings.fs_settings.add_transfer"
+        "after_insert": "payments.payment_gateways.doctype.fs_settings.fs_settings.add_transfer_contribution"
         # initiates an FS transfer for Participant Contributions (Monthly and Extra)
 	}
 	#"Contribution Entry": {
@@ -222,7 +222,6 @@ fixtures = [
                     				#-used in code to prevent decimal entries in Integer values
                     "Payment Entry-custom_contribution_type", # for FS Transactions
                     "Payment Entry-custom_fs_transfer_status", # for FS Transactions
-                    "Payment Entry-custom_fs_transaction_id" # for FS Transactions
                     "Payment Entry-custom_fs_account_to" # for FS Transactions
                     "Customer-custom_fs_account_number" # for FS Transactions
 				)
