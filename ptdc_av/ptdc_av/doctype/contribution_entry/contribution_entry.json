@@ -7,19 +7,15 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "participant",
+  "participant_name",
+  "participant_account",
   "individual",
   "individual_name",
-  "participant_account",
-  "participant_name",
   "column_break_cwm05",
-  "lunch_scheme",
-  "in_kind_scheme",
-  "personal_contribution",
-  "total_contribution",
-  "payment_entry",
-  "temporarily_out_of_station_section",
-  "tos",
-  "tos_contribution",
+  "contribution_type",
+  "contribution_amount",
+  "payment_entry_id",
   "amended_from"
  ],
  "fields": [
@@ -27,8 +23,7 @@
    "fieldname": "individual",
    "fieldtype": "Link",
    "label": "Individual",
-   "options": "Individual",
-   "reqd": 1
+   "options": "Individual"
   },
   {
    "fieldname": "naming_series",
@@ -45,63 +40,19 @@
    "read_only": 1
   },
   {
-   "fetch_from": "individual.participant_account",
+   "default": "0",
+   "description": "Auto-fetched from Participant Account",
+   "fetch_from": "participant.custom_fs_account_number",
    "fieldname": "participant_account",
    "fieldtype": "Data",
-   "label": " Participant Account",
+   "label": "FS Account",
    "read_only": 1
   },
   {
-   "fetch_from": "individual.lunch_scheme",
-   "fetch_if_empty": 1,
-   "fieldname": "lunch_scheme",
-   "fieldtype": "Currency",
-   "hidden": 1,
-   "label": "Lunch Scheme"
-  },
-  {
-   "fetch_from": "individual.in_kind_scheme",
-   "fetch_if_empty": 1,
-   "fieldname": "in_kind_scheme",
-   "fieldtype": "Currency",
-   "hidden": 1,
-   "label": "In Kind Scheme"
-  },
-  {
-   "fetch_from": "individual.personal_contribution",
-   "fetch_if_empty": 1,
-   "fieldname": "personal_contribution",
-   "fieldtype": "Currency",
-   "label": "Personal Contribution"
-  },
-  {
-   "default": "0",
-   "description": "(TC = LS + IKS + PC) or if TOS: (TC = TOS Contribution);\nCalculated after 'Save'",
-   "fieldname": "total_contribution",
-   "fieldtype": "Currency",
-   "label": "Total Contribution",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "individual.participant_name",
+   "fetch_from": "participant.customer_name",
    "fieldname": "participant_name",
    "fieldtype": "Data",
    "label": "Participant Name",
-   "read_only": 1
-  },
-  {
-   "default": "0",
-   "fetch_from": "individual.tos",
-   "fieldname": "tos",
-   "fieldtype": "Check",
-   "label": "TOS",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "individual.tos_contribution",
-   "fieldname": "tos_contribution",
-   "fieldtype": "Currency",
-   "label": "TOS Contribution",
    "read_only": 1
   },
   {
@@ -114,26 +65,42 @@
    "read_only": 1
   },
   {
-   "description": "These fields are set from the 'Individual' doctype",
-   "fieldname": "temporarily_out_of_station_section",
-   "fieldtype": "Section Break",
-   "label": "Temporarily Out of Station"
-  },
-  {
    "fieldname": "column_break_cwm05",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "payment_entry",
+   "fieldname": "participant",
+   "fieldtype": "Link",
+   "label": "Participant",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contribution_type",
+   "fieldtype": "Select",
+   "label": "Contribution Type",
+   "options": "\nMonthly Contribution\nExtra Contribution",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "contribution_amount",
+   "fieldtype": "Currency",
+   "label": "Contribution Amount"
+  },
+  {
+   "default": "0",
+   "description": "Auto-fetched after Payment Entry is made",
+   "fieldname": "payment_entry_id",
    "fieldtype": "Data",
-   "label": "Payment Entry",
+   "label": "Payment Entry ID",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-20 18:03:02.298780",
+ "modified": "2024-08-06 15:27:13.583540",
  "modified_by": "Administrator",
  "module": "Ptdc Av",
  "name": "Contribution Entry",

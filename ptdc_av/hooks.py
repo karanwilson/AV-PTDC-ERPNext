@@ -112,7 +112,7 @@ doc_events = {
         "on_submit": "ptdc_av.api.payment_entry_for_return" # creates 'Payment Entry' for item returns
 	},
     "Payment Entry": {
-        "after_insert": "payments.payment_gateways.doctype.fs_settings.fs_settings.add_transfer_contribution"
+        "before_save": "payments.payment_gateways.doctype.fs_settings.fs_settings.add_transfer_contribution"
         # initiates an FS transfer for Participant Contributions (Monthly and Extra)
 	}
 	#"Contribution Entry": {
@@ -220,9 +220,9 @@ fixtures = [
 					"Item-item_add_on", # Automatically pulls the item_code from the above selection
                     "Item-uom_int", #'UOM INT' for fetching stock_uom.must_be_whole_number setting from Item doctype
                     				#-used in code to prevent decimal entries in Integer values
-                    "Payment Entry-custom_contribution_type", # for FS Transactions
-                    "Payment Entry-custom_fs_transfer_status", # for FS Transactions
-                    "Payment Entry-custom_fs_account_to" # for FS Transactions
+                    "Payment Entry-custom_contribution_type", # for PTDC Contributions FS Transactions
+                    "Payment Entry-custom_fs_transfer_status", # for PTDC Contributions FS Transactions
+                    "Sales Invoice-custom_fs_transfer_status", # for POS-Billing FS Transactions
                     "Customer-custom_fs_account_number" # for FS Transactions
 				)
 			]

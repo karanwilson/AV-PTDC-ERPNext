@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-from frappe.utils import today
+#from frappe.utils import today
 
 class ContributionEntry(Document):
 	# pass
